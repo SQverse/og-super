@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/logo-ogsuper.png" type="image/png" />
+    <title>LCD OG Super - Original Quality Smartphone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --color-black: #000000;
+        --color-gold: #d4af37;
+        --color-light-gold: #ffd700;
+        --color-white: #ffffff;
+        --color-dark-gray: #1a1a1a;
+        --color-light-gray: #f5f5f5;
+        --color-mid-gray: #333333;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        color: var(--color-white);
+        background-color: var(--color-black);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      p,
+      li,
+      a {
+        letter-spacing: 0.01em;
+        line-height: 1.7;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header & Navigation - Improved with subtle animation */
+      header {
+        background-color: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        padding: 15px 0;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      header.scrolled {
+        padding: 10px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-gold);
+        transition: width 0.5s ease;
+      }
+
+      .logo:hover::after {
+        width: 100%;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+      }
+
+      .logo-main {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--color-gold);
+        line-height: 1;
+        font-family: "Inter", sans-serif;
+        position: relative;
+      }
+
+      .logo-tagline {
+        font-size: 10px;
+        color: var(--color-white);
+        letter-spacing: 1.5px;
+        font-weight: 500;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+        position: relative;
+      }
+
+      nav ul li a {
+        color: var(--color-white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: color 0.3s ease;
+        position: relative;
+        font-family: "Inter", sans-serif;
+        padding: 5px 0;
+      }
+
+      nav ul li a:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: var(--color-gold);
+        transition: width 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--color-gold);
+      }
+
+      nav ul li a:hover:after {
+        width: 100%;
+      }
+
+      .nav-cta {
+        background: var(--color-gold);
+        padding: 10px 20px;
+        border-radius: 30px;
+        color: var(--color-black) !important;
+        font-weight: 700 !important;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .nav-cta:before {
+        content: "";
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--color-light-gold);
+        transition: all 0.4s ease;
+        z-index: -1;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      .nav-cta:hover:before {
+        left: 0;
+      }
+
+      .nav-cta:after {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        font-size: 24px;
+        color: var(--color-white);
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        height: 30px;
+      }
+
+      
+      /* Video Section Styles */
+      .video-section {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, var(--color-black), var(--color-dark-gray));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .video-section::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        z-index: 0;
+      }
+
+      .video-section::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        z-index: 0;
+      }
+
+      .video-container {
+        position: relative;
+        max-width: 360px; /* Lebar maksimal untuk rasio 9:16 */
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        border: 3px solid var(--color-gold);
+        transition: all 0.4s ease;
+        z-index: 2;
+      }
+
+      .video-container:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 25px 50px rgba(212, 175, 55, 0.2);
+        border-color: var(--color-light-gold);
+      }
+
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 177.78%; /* 16:9 aspect ratio, but we'll adjust for 9:16 */
+      }
+
+      .video-wrapper.vertical {
+        padding-top: 177.78%; /* Default to 16:9 */
+      }
+
+      @media (max-width: 768px) {
+        .video-wrapper.vertical {
+          padding-top: 177.78%; /* Tetap 16:9 di mobile untuk kenyamanan */
+        }
+      }
+
+      video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        border-radius: 18px;
+        cursor: pointer;
+      }
+
+      .video-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .play-button {
+        width: 80px;
+        height: 80px;
+        background: rgba(212, 175, 55, 0.8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-black);
+        font-size: 30px;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+
+      .play-button:hover {
+        background: var(--color-gold);
+        transform: scale(1.1);
+      }
+
+      .video-caption {
+        text-align: center;
+        margin-top: 30px;
+        color: var(--color-light-gray);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Mars Audio Player Styles */
+.mars-audio-player {
+  margin-top: 40px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.audio-label {
+  color: var(--color-light-gold);
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.audio-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.audio-control-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-black);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.audio-control-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.progress-container {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--color-gold);
+  border-radius: 3px;
+  transition: width 0.1s ease;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.volume-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-gold);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+}
+
+.volume-btn:hover {
+  color: var(--color-light-gold);
+}
+
+.volume-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  background: var(--color-light-gold);
+  transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+  background: var(--color-light-gold);
+  transform: scale(1.2);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .mars-audio-player {
+    margin-top: 30px;
+    padding: 15px;
+  }
+  
+  .audio-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .progress-container {
+    width: 100%;
+  }
+  
+  .volume-control {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .volume-slider {
+    width: 120px;
+  }
+}
+
+      /* Hero Section - Improved with layered animation */
+.hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80")
+            no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 50% 50%,
+          transparent 10%,
+          rgba(0, 0, 0, 0.8) 70%
+        );
+        opacity: 0.7;
+      }
+
+      .hero-content {
+        max-width: 650px;
+        padding: 0 20px;
+        animation: fadeIn 1.5s ease;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: var(--color-white);
+        line-height: 1.2;
+        font-weight: 800;
+        position: relative;
+      }
+
+      .hero h1 span {
+        color: var(--color-gold);
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero h1 span::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--color-gold),
+          transparent
+        );
+        animation: underlinePulse 3s infinite;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: var(--color-light-gray);
+        font-weight: 500;
+        position: relative;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 15px;
+        position: relative;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        display: inline-block;
+        font-family: "Inter", sans-serif;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--color-gold);
+        color: var(--color-black);
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--color-light-gold);
+        transition: all 0.4s ease;
+        z-index: -1;
+      }
+
+      .btn-primary:hover::before {
+        left: 0;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--color-white);
+        border: 2px solid var(--color-gold);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--color-gold);
+        color: var(--color-black);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      /* Floating elements in hero */
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        background: rgba(212, 175, 55, 0.1);
+        border-radius: 50%;
+        animation: float 15s infinite ease-in-out;
+      }
+
+      .floating-element:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-element:nth-child(2) {
+        width: 50px;
+        height: 50px;
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+      }
+
+      .floating-element:nth-child(3) {
+        width: 70px;
+        height: 70px;
+        top: 70%;
+        left: 15%;
+        animation-delay: 4s;
+      }
+
+      .floating-element:nth-child(4) {
+        width: 40px;
+        height: 40px;
+        top: 30%;
+        left: 85%;
+        animation-delay: 6s;
+      }
+
+      /* Products Section - Improved with staggered animation and better cards */
+      .section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--color-gold);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+        font-weight: 800;
+      }
+
+      .section-title h2:after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background: var(--color-gold);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title p {
+        color: var(--color-light-gray);
+        margin-top: 15px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .product-card {
+        background: linear-gradient(
+          145deg,
+          var(--color-dark-gray),
+          var(--color-mid-gray)
+        );
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
+        border: 1px solid rgba(212, 175, 55, 0.1);
+      }
+
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(212, 175, 55, 0.05);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .product-card:hover::before {
+        opacity: 1;
+      }
+
+      .product-img {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .product-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-img img {
+        transform: scale(1.1);
+      }
+
+      .product-info {
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .product-info h3 {
+        font-size: 1.3rem;
+        color: var(--color-white);
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .product-info p {
+        color: var(--color-light-gray);
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .product-price {
+        color: var(--color-gold);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .product-price::before {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--color-gold));
+        margin-right: 10px;
+      }
+
+      .product-cta {
+        display: inline-block;
+        padding: 10px 22px;
+        background: var(--color-gold);
+        color: var(--color-black);
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .product-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--color-light-gold);
+        transition: all 0.4s ease;
+        z-index: -1;
+      }
+
+      .product-cta:hover::before {
+        left: 0;
+      }
+
+      .product-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      /* Features Section - Improved with staggered animation and better cards */
+      /* Carousel Styles */
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+        height: 500px;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .carousel-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: var(--color-white);
+        transition: all 0.3s ease;
+      }
+
+      .carousel-slide:hover .carousel-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95),
+          rgba(0, 0, 0, 0.7)
+        );
+      }
+
+      .carousel-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: var(--color-gold);
+        font-weight: 700;
+      }
+
+      .carousel-description {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        max-width: 600px;
+      }
+
+      .carousel-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        z-index: 10;
+        padding: 0 20px;
+      }
+
+      .carousel-btn {
+        background: rgba(212, 175, 55, 0.7);
+        color: var(--color-black);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .carousel-btn:hover {
+        background: var(--color-gold);
+        transform: scale(1.1);
+      }
+
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background: var(--color-gold);
+        transform: scale(1.2);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .carousel {
+          height: 400px;
+        }
+
+        .carousel-title {
+          font-size: 1.5rem;
+        }
+
+        .carousel-description {
+          font-size: 0.9rem;
+        }
+
+        .carousel-btn {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .carousel {
+          height: 350px;
+        }
+
+        .carousel-overlay {
+          padding: 20px;
+        }
+
+        .carousel-title {
+          font-size: 1.3rem;
+        }
+
+        .carousel-description {
+          font-size: 0.85rem;
+        }
+
+        .carousel-btn {
+          width: 35px;
+          height: 35px;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Touch support for mobile */
+      .carousel {
+        touch-action: pan-y pinch-zoom;
+      }
+
+      /* About Section - Improved with better layout and visual elements */
+      .about {
+        background-color: var(--color-black);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(212, 175, 55, 0.1) 0%,
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-img {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .about-img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(212, 175, 55, 0.1);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .about-img:hover::before {
+        opacity: 1;
+      }
+
+      .about-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .about-img:hover img {
+        transform: scale(1.05);
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h2 {
+        color: var(--color-gold);
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+      }
+
+      .about-text h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--color-gold);
+      }
+
+      .about-text p {
+        color: var(--color-light-gray);
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+        position: relative;
+      }
+
+      .quality-features {
+        margin-top: 30px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .feature:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+      }
+
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(212, 175, 55, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--color-gold);
+        font-size: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .feature:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+        background: rgba(212, 175, 55, 0.3);
+      }
+
+      .feature-text h4 {
+        color: var(--color-white);
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      .feature-text p {
+        color: var(--color-light-gray);
+        font-size: 0.95rem;
+        margin-bottom: 0;
+      }
+
+      /* Insights Section - Improved with better cards and hover effects */
+
+      /* Carousel Styles */
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      .carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .carousel-item {
+        flex: 0 0 calc(100% - 40px);
+        margin: 0 20px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      @media (min-width: 768px) {
+        .carousel-item {
+          flex: 0 0 calc(50% - 40px);
+        }
+      }
+
+      @media (min-width: 992px) {
+        .carousel-item {
+          flex: 0 0 calc(33.333% - 40px);
+        }
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .product-card {
+        background: var(--secondary-black);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 25px rgba(255, 215, 0, 0.1);
+      }
+
+      .product-img {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .product-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-img img {
+        transform: scale(1.05);
+      }
+
+      .product-info {
+        padding: 20px;
+      }
+
+      .product-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--accent-yellow);
+      }
+
+      .product-info p {
+        color: #ccc;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .product-price {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        color: var(--light-yellow);
+      }
+
+      .product-cta {
+        display: inline-block;
+        background: var(--accent-yellow);
+        color: var(--primary-black);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .product-cta:hover {
+        background: var(--light-yellow);
+        transform: translateY(-2px);
+      }
+
+      .see-more-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .see-more-btn {
+        display: inline-block;
+        background: var(--color-light-gold);
+        color: var(--primary-white);
+        padding: 15px 40px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .see-more-btn:hover {
+        background: #ffd700;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+      }
+
+      .see-more-btn:active {
+        transform: translateY(1px);
+      }
+
+      /* Animasi */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.6s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stagger-item:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .stagger-item:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .stagger-item:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .stagger-item:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      /* Responsivitas */
+      @media (max-width: 768px) {
+        .products-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .section-title p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .see-more-btn {
+          padding: 12px 30px;
+          font-size: 1rem;
+        }
+      }
+
+      .read-more {
+        color: var(--color-gold);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        position: relative;
+      }
+
+      .read-more::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-gold);
+        transition: width 0.3s ease;
+      }
+
+      .read-more:hover::after {
+        width: 100%;
+      }
+
+      .read-more i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover {
+        color: var(--color-light-gold);
+      }
+
+      .read-more:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Contact Section - Improved with better form styling */
+      .contact {
+        background: linear-gradient(
+          to bottom,
+          var(--color-dark-gray),
+          var(--color-black)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(212, 175, 55, 0.1) 0%,
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .contact-container {
+        display: flex;
+        gap: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-info h2 {
+        color: var(--color-gold);
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+      }
+
+      .contact-info h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--color-gold);
+      }
+
+      .contact-info p {
+        color: var(--color-light-gray);
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-detail:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(212, 175, 55, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--color-gold);
+        transition: all 0.3s ease;
+      }
+
+      .contact-detail:hover .contact-icon {
+        transform: scale(1.1);
+        background: rgba(212, 175, 55, 0.3);
+      }
+
+      .contact-text {
+        color: var(--color-light-gray);
+        font-size: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-white);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-gold);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+      }
+
+      .social-link:hover::before {
+        opacity: 1;
+      }
+
+      .social-link:hover {
+        transform: translateY(-3px) rotate(5deg);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .social-link i {
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-form {
+        flex: 1;
+        background: linear-gradient(
+          145deg,
+          rgba(26, 26, 26, 0.8),
+          rgba(51, 51, 51, 0.6)
+        );
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(212, 175, 55, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .form-group label {
+        display: block;
+        color: var(--color-light-gray);
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: var(--color-white);
+        font-family: "Nunito", sans-serif;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--color-gold);
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: var(--color-gold);
+        color: var(--color-black);
+        border: none;
+        padding: 14px 32px;
+        border-radius: 30px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--color-light-gold);
+        transition: all 0.4s ease;
+        z-index: -1;
+      }
+
+      .submit-btn:hover::before {
+        left: 0;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      /* Footer - Improved with better styling */
+      footer {
+        background: linear-gradient(
+          to bottom,
+          var(--color-black),
+          var(--color-dark-gray)
+        );
+        padding: 60px 0 30px;
+        position: relative;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-col h3 {
+        color: var(--color-gold);
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .footer-col h3:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: var(--color-gold);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-col p {
+        color: var(--color-light-gray);
+        margin-bottom: 20px;
+        font-size: 1rem;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: var(--color-light-gray);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        font-size: 1rem;
+        position: relative;
+      }
+
+      .footer-links a::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--color-gold);
+        transition: width 0.3s ease;
+      }
+
+      .footer-links a:hover::before {
+        width: 100%;
+      }
+
+      .footer-links a i {
+        margin-right: 5px;
+        font-size: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--color-gold);
+      }
+
+      .footer-links a:hover i {
+        transform: translateX(3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-bottom p {
+        color: var(--color-light-gray);
+        font-size: 0.95rem;
+      }
+
+      /* Back to top button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--color-gold);
+        color: var(--color-black);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-5px) rotate(5deg);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
+
+      @keyframes underlinePulse {
+        0% {
+          opacity: 0;
+          width: 0;
+        }
+        50% {
+          opacity: 1;
+          width: 100%;
+        }
+        100% {
+          opacity: 0;
+          width: 0;
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered animation for grid items */
+      .stagger-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+      }
+
+      .stagger-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-img,
+        .about-text {
+          flex: auto;
+          width: 100%;
+        }
+
+        .contact-container {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          padding: 0 20px;
+        }
+
+        nav ul {
+          display: none;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.95),
+            rgba(26, 26, 26, 0.95)
+          );
+          flex-direction: column;
+          padding: 20px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+
+        nav ul li {
+          margin: 10px 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .products-grid,
+        .insights-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero p,
+        .section-title p,
+        .product-info p,
+        .feature-card p,
+        .about-text p,
+        .insight-info p,
+        .contact-info p,
+        .contact-text,
+        .footer-col p {
+          font-size: 0.95rem;
+        }
+
+        .product-info h3,
+        .feature-card h3,
+        .insight-info h3 {
+          font-size: 1.2rem;
+        }
+
+        .floating-element {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header id="header">
+      <div class="container header-container">
+        <div class="logo">
+          <div class="logo-text">
+            <div class="logo-main">LCD OG SUPER</div>
+            <div class="logo-tagline">Original Quality</div>
+          </div>
+        </div>
+
+        <nav>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <ul id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Produk</a></li>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#contact" class="nav-cta">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>LCD Berkualitas Tinggi <span>Pengalaman Visual Terbaik</span></h1>
+          <p>
+            LCD TERBAIK DAN TOP BEST SELLER NO 1 DI INDONESIA! <br />
+            Temukan koleksi lengkap LCD dan layar pengganti berkualitas premium
+            untuk semua merek smartphone terkemuka. Original Quality terjamin.
+          </p>
+          <div class="hero-btns">
+            <a href="#products" class="btn btn-primary">Jelajahi Produk</a>
+            <a href="#contact" class="btn btn-secondary">Konsultasi Gratis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Mengapa Harus Produk Kami?</h2>
+          <p>Lihat kualitas dan keunggulan LCD OG Super dalam video berikut</p>
+        </div>
+        
+        <div class="video-container fade-in">
+          <div class="video-wrapper vertical">
+            <video id="productVideo" poster="assets/video-poster.jpg">
+              <source src="assets/product/id-11110107-6ke1m-ly3msuf8kcn2ec.16000081721819747.mp4" type="video/mp4">
+              Browser Anda tidak mendukung pemutaran video.
+            </video>
+            <div class="video-overlay" id="videoOverlay">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="video-caption fade-in">
+          <p>Video ini menunjukkan kualitas gambar yang jernih, sensitivitas sentuhan yang presisi, 
+            dan ketahanan layar LCD OG Super yang telah teruji.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audio Player Section -->
+    <div class="mars-audio-player fade-in">
+      <p class="audio-label">Dengarkan Mars OG Super</p>
+      <div class="audio-container">
+        <button id="playPauseBtn" class="audio-control-btn">
+          <i class="fas fa-play"></i>
+        </button>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="volume-control">
+          <button id="muteBtn" class="volume-btn">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+        </div>
+        <audio id="marsAudio">
+          <source src="assets/LCD OG Super Shine Star Ver 1 (1).mp3" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </div>
+    </div>
+
+
+    <!-- Features Section -->
+    <section class="section" id="features-carousel">
+      <div class="container">
+        <div class="section-title">
+          <h2>Fitur Unggulan</h2>
+          <p>Keunggulan LCD OG Super yang membedakan dari produk lainnya</p>
+        </div>
+
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="carousel-slide">
+              <img
+                src="assets/CAR1.JPG"
+                alt="DELICATE PRESISI TOUCH"
+                class="carousel-image"
+              />
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                src="assets/CAR2.JPG"
+                alt="TIDAK KEBIRUAN"
+                class="carousel-image"
+              />
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                src="assets/CAR3.JPG"
+                alt="LAYAR 9H"
+                class="carousel-image"
+              />
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                src="assets/CAR4.JPG"
+                alt="MULTITOUCH 10 JARI"
+                class="carousel-image"
+              />
+            </div>
+          </div>
+
+          <div class="carousel-nav">
+            <button class="carousel-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+<section class="section" id="products">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Koleksi Produk Kami</h2>
+                <p>Beragam pilihan LCD dan layar pengganti berkualitas tinggi untuk berbagai merek smartphone</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in stagger-item">
+                    <div class="product-img">
+                        <img src="assets/product/produk1.JPG" alt="Xiaomi LCD Replacement">
+                    </div>
+                    <div class="product-info">
+                        <h3>LCD Xiaomi</h3>
+                        <p>LCD pengganti berkualitas tinggi untuk semua seri handphone Xiaomi dengan garansi resmi.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in stagger-item">
+                    <div class="product-img">
+                        <img src="assets/product/samsung.jpeg" alt="Samsung LCD Replacement">
+                    </div>
+                    <div class="product-info">
+                        <h3>LCD Samsung</h3>
+                        <p>Layar LCD pengganti untuk seri Samsung Galaxy dengan kualitas warna yang memukau.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in stagger-item">
+                    <div class="product-img">
+                        <img src="assets/product/realme.jpeg" alt="Realme LCD Replacement">
+                    </div>
+                    <div class="product-info">
+                        <h3>LCD Realme</h3>
+                        <p>Layar pengganti berkualitas tinggi untuk berbagai seri Realme.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in stagger-item">
+                    <div class="product-img">
+                        <img src="assets/product/produk3.JPG" alt="OPPO LCD Replacement">
+                    </div>
+                    <div class="product-info">
+                        <h3>LCD OPPO</h3>
+                        <p>Layar pengganti original untuk smartphone OPPO dengan jaminan kualitas.</p>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in stagger-item">
+                    <div class="product-img">
+                        <img src="assets/product/infinix.jpeg" alt="Infinix LCD Replacement">
+                    </div>
+                    <div class="product-info">
+                        <h3>LCD Infinix</h3>
+                        <p>Layar pengganti original untuk smartphone Infinix dengan jaminan kualitas.</p>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in stagger-item">
+                    <div class="product-img">
+                        <img src="assets/product/vivo.jpeg" alt="Vivo LCD Replacement">
+                    </div>
+                    <div class="product-info">
+                        <h3>LCD Vivo</h3>
+                        <p>Layar pengganti original untuk smartphone Vivo dengan jaminan kualitas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="see-more-container">
+                <a href="https://shopee.co.id/ogsuperofficial#product_list" target="_blank" class="see-more-btn">Lihat Selengkapnya di Shopee</a>
+        </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Tentang LCD OG Super</h2>
+          <p>
+            Original Quality - Komitmen kami terhadap kualitas и kepuasan
+            pelanggan
+          </p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-img fade-in">
+            <img src="assets/og1.JPG" alt="About LCD OG Super" />
+          </div>
+          <div class="about-text fade-in">
+            <h2>Mengapa Memilih Produk Kami?</h2>
+            <p>
+              LCD OG Super telah menjadi pemimpin dalam penyediaan LCD dan layar
+              pengganti berkualitas tinggi. Setiap produk kami melalui proses
+              quality control yang ketat untuk memastikan kepuasan pelanggan.
+            </p>
+            <p>
+              Kami hanya menggunakan material terbaik dan teknologi mutakhir
+              untuk memastikan layar pengganti kami tidak hanya berfungsi dengan
+              sempurna, tetapi juga tahan lama dan memberikan pengalaman visual
+              terbaik.
+            </p>
+
+            <div class="quality-features">
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Kualitas Terjamin</h4>
+                  <p>
+                    Semua produk kami bergaransi resmi dengan jaminan kualitas
+                    terbaik.
+                  </p>
+                </div>
+              </div>
+
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-tools"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Presisi Tinggi</h4>
+                  <p>
+                    Setiap LCD diproduksi dengan presisi tinggi untuk
+                    kompatibilitas sempurna.
+                  </p>
+                </div>
+              </div>
+
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-shipping-fast"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Pengiriman Cepat</h4>
+                  <p>
+                    Melayani pengiriman ke seluruh Indonesia dengan packaging
+                    aman.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Hubungi Kami</h2>
+          <p>
+            Konsultasikan kebutuhan LCD dan layar smartphone Anda dengan tim
+            ahli kami
+          </p>
+        </div>
+
+        <div class="contact-container">
+          <div class="contact-info fade-in">
+            <h2>Butuh Bantuan?</h2>
+            <p>
+              Tim customer service kami siap membantu Anda memilih produk yang
+              tepat dan menjawab semua pertanyaan terkait LCD dan layar
+              pengganti.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">Kota Jakarta Barat, Indonesia</div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">+62 851 8433 3580</div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/p/OG-Super-100090022333414/"
+                class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/lcdogsupershinestar.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@official_ogsuper"
+                class="social-link"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=6285184333580&text&type=phone_number&app_absent=0"
+                class="social-link"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="contact-form fade-in">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+
+              <a href="https://api.whatsapp.com/send/?phone=6285184333580&text&type=phone_number&app_absent=0">
+              <button type="submit" class="submit-btn">Kirim Pesan</button>
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>LCD OG Super</h3>
+            <p>
+              Original Quality. Menyediakan LCD layar pengganti berkualitas
+              tinggi dengan jaminan kepuasan pelanggan.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h3>Produk Kami</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> LCD Infinix</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> LCD Samsung</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> LCD Xiaomi</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-chevron-right"></i> LCD OPPO & Realme</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-chevron-right"></i> LCD Vivo</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Link Cepat</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+              </li>
+              <li>
+                <a href="#products"
+                  ><i class="fas fa-chevron-right"></i> Produk</a
+                >
+              </li>
+              <li>
+                <a href="#about"
+                  ><i class="fas fa-chevron-right"></i> Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a href="#contact"
+                  ><i class="fas fa-chevron-right"></i> Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Jam Operasional</h3>
+            <p>Senin - Sabtu: 09:00 - 19:00</p>
+            <p>Minggu: Tutup</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 LCD OG Super. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navMenu = document.getElementById("navMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+
+        if (navMenu.classList.contains("active")) {
+          mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+
+      // Header Scroll Effect
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+        // Back to top button visibility
+        if (window.scrollY > 500) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const carousel = document.querySelector(".carousel");
+        const slides = document.querySelectorAll(".carousel-slide");
+        const dots = document.querySelectorAll(".dot");
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
+
+        let currentIndex = 0;
+        const slideCount = slides.length;
+
+        // Function to update carousel position
+        function updateCarousel() {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          // Update active dot
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
+          });
+        }
+
+        // Next slide function
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % slideCount;
+          updateCarousel();
+        }
+
+        // Previous slide function
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+          updateCarousel();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+          currentIndex = index;
+          updateCarousel();
+        }
+
+        // Event listeners for buttons
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        // Event listeners for dots
+        dots.forEach((dot) => {
+          dot.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            goToSlide(index);
+          });
+        });
+
+        // Auto slide
+        let autoSlideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto slide on hover
+        const carouselContainer = document.querySelector(".carousel-container");
+        carouselContainer.addEventListener("mouseenter", () => {
+          clearInterval(autoSlideInterval);
+        });
+
+        carouselContainer.addEventListener("mouseleave", () => {
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Touch events for mobile
+        let startX = 0;
+        let endX = 0;
+
+        carouselContainer.addEventListener(
+          "touchstart",
+          (e) => {
+            startX = e.touches[0].clientX;
+            clearInterval(autoSlideInterval);
+          },
+          { passive: true }
+        );
+
+        carouselContainer.addEventListener(
+          "touchend",
+          (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+            autoSlideInterval = setInterval(nextSlide, 5000);
+          },
+          { passive: true }
+        );
+
+        function handleSwipe() {
+          const threshold = 50; // Minimum swipe distance
+
+          if (startX - endX > threshold) {
+            // Swipe left - next slide
+            nextSlide();
+          } else if (endX - startX > threshold) {
+            // Swipe right - previous slide
+            prevSlide();
+          }
+        }
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowLeft") {
+            prevSlide();
+          } else if (e.key === "ArrowRight") {
+            nextSlide();
+          }
+        });
+      });
+
+        // Video Player Functionality
+      const productVideo = document.getElementById('productVideo');
+      const videoOverlay = document.getElementById('videoOverlay');
+      
+      if (videoOverlay) {
+        videoOverlay.addEventListener('click', function() {
+          productVideo.play();
+          videoOverlay.classList.add('hidden');
+        });
+      }
+      
+      if (productVideo) {
+        productVideo.addEventListener('click', function() {
+          if (productVideo.paused) {
+            productVideo.play();
+            videoOverlay.classList.add('hidden');
+          } else {
+            productVideo.pause();
+            videoOverlay.classList.remove('hidden');
+          }
+        });
+      }
+
+       // Audio Player Functionality
+        // Audio Player Functionality
+const marsAudio = document.getElementById('marsAudio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
+const muteBtn = document.getElementById('muteBtn');
+const volumeSlider = document.getElementById('volumeSlider');
+
+// Play/Pause functionality
+playPauseBtn.addEventListener('click', function() {
+  if (marsAudio.paused) {
+    marsAudio.play();
+    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+  } else {
+    marsAudio.pause();
+    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+  }
+});
+
+// Update progress bar
+marsAudio.addEventListener('timeupdate', function() {
+  const progress = (marsAudio.currentTime / marsAudio.duration) * 100;
+  progressBar.style.width = progress + '%';
+});
+
+// Click on progress bar to seek
+progressBar.parentElement.addEventListener('click', function(e) {
+  const progressWidth = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = marsAudio.duration;
+  marsAudio.currentTime = (clickX / progressWidth) * duration;
+});
+
+// Volume control
+volumeSlider.addEventListener('input', function() {
+  marsAudio.volume = volumeSlider.value;
+  
+  // Update mute button icon
+  if (marsAudio.volume == 0) {
+    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+  } else {
+    muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  }
+});
+
+// Mute functionality
+muteBtn.addEventListener('click', function() {
+  if (marsAudio.volume > 0) {
+    // Store current volume before muting
+    volumeSlider.dataset.prevVolume = marsAudio.volume;
+    marsAudio.volume = 0;
+    volumeSlider.value = 0;
+    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+  } else {
+    // Restore to previous volume or default
+    marsAudio.volume = volumeSlider.dataset.prevVolume || 0.7;
+    volumeSlider.value = marsAudio.volume;
+    muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  }
+});
+
+// Reset icon when audio ends
+marsAudio.addEventListener('ended', function() {
+  playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+});
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize carousel
+        const carousel = document.querySelector(".carousel");
+        const items = document.querySelectorAll(".carousel-item");
+        const dots = document.querySelectorAll(".dot");
+        const prevBtn = document.querySelector(".carousel-nav.prev");
+        const nextBtn = document.querySelector(".carousel-nav.next");
+
+        let currentIndex = 0;
+        const itemCount = items.length;
+
+        // Set initial active state
+        updateActiveState();
+
+        // Function to update active state
+        function updateActiveState() {
+          // Remove active class from all items and dots
+          items.forEach((item) => item.classList.remove("active"));
+          dots.forEach((dot) => dot.classList.remove("active"));
+
+          // Add active class to current item and dot
+          items[currentIndex].classList.add("active");
+          dots[currentIndex].classList.add("active");
+
+          // Calculate and set transform
+          const itemWidth = items[0].offsetWidth + 40; // width + margin
+          carousel.style.transform = `translateX(-${
+            currentIndex * itemWidth
+          }px)`;
+        }
+
+        // Next button event
+        nextBtn.addEventListener("click", function () {
+          currentIndex = (currentIndex + 1) % itemCount;
+          updateActiveState();
+        });
+
+        // Previous button event
+        prevBtn.addEventListener("click", function () {
+          currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+          updateActiveState();
+        });
+
+        // Dot navigation
+        dots.forEach((dot) => {
+          dot.addEventListener("click", function () {
+            currentIndex = parseInt(this.getAttribute("data-index"));
+            updateActiveState();
+          });
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener(
+          "touchstart",
+          function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          false
+        );
+
+        carousel.addEventListener(
+          "touchend",
+          function (e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          },
+          false
+        );
+
+        function handleSwipe() {
+          const minSwipeDistance = 50; // Minimum distance for a swipe to be registered
+
+          if (touchStartX - touchEndX > minSwipeDistance) {
+            // Swipe left - next
+            currentIndex = (currentIndex + 1) % itemCount;
+            updateActiveState();
+          } else if (touchEndX - touchStartX > minSwipeDistance) {
+            // Swipe right - previous
+            currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+            updateActiveState();
+          }
+        }
+
+        // Keyboard navigation
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+            updateActiveState();
+          } else if (e.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % itemCount;
+            updateActiveState();
+          }
+        });
+
+        // Responsive adjustments on window resize
+        window.addEventListener("resize", function () {
+          updateActiveState();
+        });
+
+        // Animation for stagger items
+        setTimeout(function () {
+          document.querySelectorAll(".stagger-item").forEach((item, index) => {
+            setTimeout(() => {
+              item.style.opacity = 1;
+              item.style.transform = "translateY(0)";
+            }, 200 * index);
+          });
+        }, 300);
+      });
+
+      // Smooth Scrolling for Anchor Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (navMenu.classList.contains("active")) {
+              navMenu.classList.remove("active");
+              mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+          }
+        });
+      });
+
+      // Form Submission
+      const contactForm = document.getElementById("contactForm");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const message = document.getElementById("message").value;
+        const adminNumber = 6285184333580;
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${adminNumber}&text=Halo%20OG%20Super,%0A%0ASaya%20ingin%20info%20lebih%20lanjut%20:%0A%0ANama:%20${encodeURIComponent(name)}%0APesan:%20${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, "_blank");
+
+        contactForm.reset();
+      });
+
+      // Fade-in Animation on Scroll
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const fadeInObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      fadeElements.forEach((element) => {
+        fadeInObserver.observe(element);
+      });
+
+      // Staggered animation for grid items
+      const staggerItems = document.querySelectorAll(".stagger-item");
+
+      const staggerObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, index * 150);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      staggerItems.forEach((item) => {
+        staggerObserver.observe(item);
+      });
+
+      // Back to top functionality
+      const backToTop = document.getElementById("backToTop");
+
+      backToTop.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
