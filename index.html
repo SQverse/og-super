@@ -976,6 +976,33 @@
         transform: scale(1.2);
       }
 
+      #products-lcd {
+            padding: 100px 0 80px;
+        }
+        
+        #battery {
+            padding: 80px 0;
+        }
+        
+        #portfolio {
+            padding: 80px 0 100px;
+        }
+        
+        /* Untuk tampilan mobile, atur ulang spacing */
+        @media (max-width: 768px) {
+            #products-lcd {
+                padding: 70px 0 50px;
+            }
+            
+            #battery {
+                padding: 50px 0;
+            }
+            
+            #portfolio {
+                padding: 50px 0 70px;
+            }
+        }
+
       /* Responsive Styles */
       @media (max-width: 768px) {
         .carousel {
@@ -1027,6 +1054,164 @@
       .carousel {
         touch-action: pan-y pinch-zoom;
       }
+
+       .battery {
+            background: linear-gradient(to bottom, var(--dark-black), var(--primary-black));
+            position: relative;
+        }
+        
+        .battery:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1592913401258-19770252b3a3?ixlib=rb-4.0.3') no-repeat center center/cover;
+            opacity: 0.1;
+        }
+        
+        .battery-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .battery-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .battery-text h3 {
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .battery-features {
+            margin: 25px 0;
+        }
+        
+        .battery-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .battery-feature i {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .battery-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .battery-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--accent-gold);
+        }
+        
+        /* Section Portofolio */
+        .portfolio {
+            background-color: var(--secondary-black);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portfolio-item iframe,
+        .portfolio-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-overlay p {
+            color: var(--white);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .battery-content {
+                flex-direction: column;
+            }
+            
+            .battery-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .product-card {
+                min-width: 100%;
+            }
+        }
 
       /* About Section - Improved with better layout and visual elements */
       .about {
@@ -1426,6 +1611,434 @@
       .read-more:hover i {
         transform: translateX(5px);
       }
+
+      /* Product Categories Filter */
+.product-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  gap: 15px;
+}
+
+.category-btn {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-gold);
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Inter", sans-serif;
+}
+
+.category-btn.active, .category-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-black);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Product Badge */
+.product-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+/* Product Features */
+.product-features {
+  margin-top: 15px;
+}
+
+.product-feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.product-feature i {
+  color: var(--color-gold);
+  margin-right: 10px;
+}
+
+/* Battery Section */
+.battery {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .battery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 30%, rgba(153, 126, 36, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(to right, #D4AF37 0%, #FFDB6E 30%, #D4AF37 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #D4AF37, #AA8A2D);
+        }
+
+        #battery {
+        padding: 100px 0;
+        background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #battery::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 80% 30%, rgba(153, 126, 36, 0.15) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .battery-carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .battery-carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+        height: 500px;
+      }
+
+      .battery-slide {
+        min-width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .battery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .battery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: var(--color-white);
+        transition: all 0.3s ease;
+      }
+
+      .battery-slide:hover .battery-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95),
+          rgba(0, 0, 0, 0.7)
+        );
+      }
+
+      .battery-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: var(--color-gold);
+        font-weight: 700;
+      }
+
+      .battery-description {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        max-width: 600px;
+      }
+
+      .battery-nav {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        z-index: 10;
+        padding: 0 20px;
+      }
+
+      .battery-btn {
+        background: rgba(212, 175, 55, 0.7);
+        color: var(--color-black);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .battery-btn:hover {
+        background: var(--color-gold);
+        transform: scale(1.1);
+      }
+
+      .battery-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+      }
+
+      .battery-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .battery-dot.active {
+        background: var(--color-gold);
+        transform: scale(1.2);
+      }
+
+      /* Responsive Styles for Battery Carousel */
+      @media (max-width: 768px) {
+        .battery-carousel {
+          height: 400px;
+        }
+
+        .battery-title {
+          font-size: 1.5rem;
+        }
+
+        .battery-description {
+          font-size: 0.9rem;
+        }
+
+        .battery-btn {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .battery-carousel {
+          height: 350px;
+        }
+
+        .battery-overlay {
+          padding: 20px;
+        }
+
+        .battery-title {
+          font-size: 1.3rem;
+        }
+
+        .battery-description {
+          font-size: 0.85rem;
+        }
+
+        .battery-btn {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+        /* Animations */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-item {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .stagger-item:nth-child(1) { animation-delay: 0.4s; }
+        .stagger-item:nth-child(2) { animation-delay: 0.5s; }
+        .stagger-item:nth-child(3) { animation-delay: 0.6s; }
+        .stagger-item:nth-child(4) { animation-delay: 0.7s; }
+        .stagger-item:nth-child(5) { animation-delay: 0.8s; }
+        .stagger-item:nth-child(6) { animation-delay: 0.9s; }
+        .stagger-item:nth-child(7) { animation-delay: 1.0s; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .battery-content {
+                flex-direction: column;
+            }
+            
+            .battery-text, .battery-image {
+                width: 100%;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .battery-text h3 {
+                font-size: 24px;
+            }
+        }
+
+/* Portfolio Section */
+.portfolio {
+  background-color: var(--color-dark-gray);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item iframe,
+.portfolio-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay h3 {
+  color: var(--color-gold);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.portfolio-overlay p {
+  color: var(--color-white);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .section-title h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .battery-content {
+    flex-direction: column;
+  }
+  
+  .battery-text {
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-categories {
+    gap: 10px;
+  }
+  
+  .category-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+}
 
       /* Contact Section - Improved with better form styling */
       .contact {
@@ -1995,7 +2608,7 @@
       <div class="container header-container">
         <div class="logo">
           <div class="logo-text">
-            <div class="logo-main">LCD OG SUPER</div>
+            <div class="logo-main">OG SUPER SHINESTAR</div>
             <div class="logo-tagline">Original Quality</div>
           </div>
         </div>
@@ -2025,11 +2638,10 @@
       </div>
       <div class="container">
         <div class="hero-content">
-          <h1>LCD Berkualitas Tinggi <span>Pengalaman Visual Terbaik</span></h1>
+          <h1>OG SUPER SHINESTAR <span>Pengalaman Visual Terbaik</span></h1>
           <p>
-            LCD TERBAIK DAN TOP BEST SELLER NO 1 DI INDONESIA! <br />
-            Temukan koleksi lengkap LCD dan layar pengganti berkualitas premium
-            untuk semua merek smartphone terkemuka. Original Quality terjamin.
+            MAU CARI LCD YANG JUARA? YA DI JUARANYA LCD<br />
+            Bukan cuma lengkap, tapi juga berkualitas, bergaransi, dan terbukti dipercaya teknisi di seluruh Indonesia. Dari OG Super, Shinestar, Agwin, Macplus, sampai Tictoc semuanya ada di Juaranya LCD
           </p>
           <div class="hero-btns">
             <a href="#products" class="btn btn-primary">Jelajahi Produk</a>
@@ -2154,79 +2766,243 @@
       </div>
     </section>
 
-    <!-- Products Section -->
-<section class="section" id="products">
+    <!-- Products LCD Section -->
+<section class="section" id="products-lcd">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>Produk LCD Kami</h2>
+      <p>Dari OG Super, Shinestar, Agwin, Macplus, sampai Tictoc semuanya ada di Juaranya LCD</p>
+      <p>Bukan cuma lengkap, tapi juga berkualitas, bergaransi, dan terbukti dipercaya teknisi di seluruh Indonesia</p>
+    </div>
+    
+    <div class="products-grid">
+      <div class="product-card fade-in stagger-item" data-category="ogsuper">
+        <div class="product-badge">Terlaris</div>
+        <div class="product-img">
+          <img src="assets/product/ogsuper.JPG" alt="OG Super LCD">
+        </div>
+        <div class="product-info">
+          <h3>OG Super LCD</h3>
+          <p>LCD berkualitas tinggi dengan garansi resmi, cocok untuk berbagai merek smartphone.</p>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Kualitas terbaik</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Garansi 1 tahun</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Tersedia berbagai model</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card fade-in stagger-item" data-category="shinestar">
+        <div class="product-img">
+          <img src="assets/product/shinestar.JPG" alt="Shinestar LCD">
+        </div>
+        <div class="product-info">
+          <h3>Shinestar LCD</h3>
+          <p>LCD dengan teknologi terkini, menawarkan warna yang jernih dan responsifitas tinggi.</p>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Warna jernih</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Responsif</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Tahan lama</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card fade-in stagger-item" data-category="tictoc">
+        <div class="product-img">
+          <img src="assets/product/tictoc.JPG" alt="TicToc LCD">
+        </div>
+        <div class="product-info">
+          <h3>TicToc LCD</h3>
+          <p>LCD ekonomis dengan kualitas terjamin, solusi tepat untuk perbaikan smartphone.</p>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Harga terjangkau</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Kualitas terjamin</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Garansi 6 bulan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card fade-in stagger-item" data-category="macplus">
+        <div class="product-img">
+          <img src="assets/product/macplus.JPG" alt="MacPlus LCD">
+        </div>
+        <div class="product-info">
+          <h3>MacPlus LCD</h3>
+          <p>LCD premium dengan ketahanan tinggi dan reproduksi warna yang akurat.</p>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Reproduksi warna akurat</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Ketahanan tinggi</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Garansi 1 tahun</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card fade-in stagger-item" data-category="agwin">
+        <div class="product-img">
+          <img src="assets/product/agwin.JPG" alt="Agwin LCD">
+        </div>
+        <div class="product-info">
+          <h3>Agwin LCD</h3>
+          <p>LCD dengan kualitas terbaik dan harga kompetitif, pilihan tepat untuk berbagai smartphone.</p>
+          <div class="product-features">
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Harga kompetitif</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Kualitas terbaik</span>
+            </div>
+            <div class="product-feature">
+              <i class="fas fa-check"></i>
+              <span>Garansi 9 bulan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Battery Section -->
+
+     <!-- Battery Section - Changed to Carousel -->
+<section id="battery" class="section">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Baterai OG SUPER dan Baterai MacPlus</h2>
+        </div>
+        
+        <div class="battery-carousel-container">
+          <div class="battery-carousel">
+            <!-- Slide 1: OG Super Battery -->
+            <div class="battery-slide">
+              <img src="assets/product/bat-car1.JPG" alt="OG Super Battery" class="battery-image">
+              <div class="battery-overlay">
+                <h3 class="battery-title">BATERAI OG SUPER</h3>
+                <p class="battery-description">Pilihan Terbaik untuk Baterai HP Kamu</p>
+                <p class="battery-description">● Kualitas Original <br> ● Baterai pertama dengan CELL COBALT (BATERAI OGSUPER)</p>
+              </div>
+            </div>
+            
+            <!-- Slide 2: MacPlus Battery -->
+            <div class="battery-slide">
+              <img src="assets/product/bat-car2.JPG" alt="OG Super Battery" class="battery-image">
+              <div class="battery-overlay">
+                <h3 class="battery-title">Tenaga Extra, Performa Juara</h3>
+                <p class="battery-description">● Double Power <br> ● Double IC</p>
+              </div>
+            </div>
+            
+            <!-- Slide 3: Shinestar Battery -->
+            <div class="battery-slide">
+              <img src="assets/product/bat-car3.JPG" alt="MacPlus Battery" class="battery-image">
+              <div class="battery-overlay">
+                <h3 class="battery-title">BATERAI MACPLUS</h3>
+                <p class="battery-description">Isi Cepat, Tahan Lama</p>
+                <p class="battery-description">● Fast charging <br> ● Tahan lama</p>
+              </div>
+            </div>
+            
+            <!-- Slide 4: Agwin Battery -->
+            <div class="battery-slide">
+              <img src="assets/product/bat-car4.JPG" class="battery-image">
+              <div class="battery-overlay">
+                <h3 class="battery-title">Aman & Mudah Didapat</h3>
+                <p class="battery-description">● Dilengkapi IC fuse / IC protector <br> ● Tersedia di toko sparepart handphone terdekat di kota kamu!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="battery-nav">
+            <button class="battery-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="battery-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="battery-dots">
+            <span class="battery-dot active" data-index="0"></span>
+            <span class="battery-dot" data-index="1"></span>
+            <span class="battery-dot" data-index="2"></span>
+            <span class="battery-dot" data-index="3"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Portofolio -->
+    <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Koleksi Produk Kami</h2>
-                <p>Beragam pilihan LCD dan layar pengganti berkualitas tinggi untuk berbagai merek smartphone</p>
+                <h2>Portofolio Kami</h2>
             </div>
             
-            <div class="products-grid">
-                <div class="product-card fade-in stagger-item">
-                    <div class="product-img">
-                        <img src="assets/product/produk1.JPG" alt="Xiaomi LCD Replacement">
-                    </div>
-                    <div class="product-info">
-                        <h3>LCD Xiaomi</h3>
-                        <p>LCD pengganti berkualitas tinggi untuk semua seri handphone Xiaomi dengan garansi resmi.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item stagger-item">
+                    <iframe src="https://www.instagram.com/p/DLtcsVER7Wb/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <div class="portfolio-overlay">
+                        <h3>Instalasi LCD OG Super</h3>
+                        <p>Proses instalasi LCD OG Super pada smartphone Samsung.</p>
                     </div>
                 </div>
                 
-                <div class="product-card fade-in stagger-item">
-                    <div class="product-img">
-                        <img src="assets/product/samsung.jpeg" alt="Samsung LCD Replacement">
-                    </div>
-                    <div class="product-info">
-                        <h3>LCD Samsung</h3>
-                        <p>Layar LCD pengganti untuk seri Samsung Galaxy dengan kualitas warna yang memukau.</p>
+                <div class="portfolio-item stagger-item">
+                    <iframe src="https://www.instagram.com/p/DLuD7uORssM/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <div class="portfolio-overlay">
+                        <h3>Penggantian Baterai</h3>
+                        <p>Penggantian baterai smartphone iPhone dengan produk Agwin.</p>
                     </div>
                 </div>
                 
-                <div class="product-card fade-in stagger-item">
-                    <div class="product-img">
-                        <img src="assets/product/realme.jpeg" alt="Realme LCD Replacement">
-                    </div>
-                    <div class="product-info">
-                        <h3>LCD Realme</h3>
-                        <p>Layar pengganti berkualitas tinggi untuk berbagai seri Realme.</p>
-                    </div>
-                </div>
-                
-                <div class="product-card fade-in stagger-item">
-                    <div class="product-img">
-                        <img src="assets/product/produk3.JPG" alt="OPPO LCD Replacement">
-                    </div>
-                    <div class="product-info">
-                        <h3>LCD OPPO</h3>
-                        <p>Layar pengganti original untuk smartphone OPPO dengan jaminan kualitas.</p>
-                    </div>
-                </div>
-
-                <div class="product-card fade-in stagger-item">
-                    <div class="product-img">
-                        <img src="assets/product/infinix.jpeg" alt="Infinix LCD Replacement">
-                    </div>
-                    <div class="product-info">
-                        <h3>LCD Infinix</h3>
-                        <p>Layar pengganti original untuk smartphone Infinix dengan jaminan kualitas.</p>
-                    </div>
-                </div>
-
-                <div class="product-card fade-in stagger-item">
-                    <div class="product-img">
-                        <img src="assets/product/vivo.jpeg" alt="Vivo LCD Replacement">
-                    </div>
-                    <div class="product-info">
-                        <h3>LCD Vivo</h3>
-                        <p>Layar pengganti original untuk smartphone Vivo dengan jaminan kualitas.</p>
+                <div class="portfolio-item stagger-item">
+                    <iframe src="https://www.instagram.com/p/DMPDNHZRERn/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <div class="portfolio-overlay">
+                        <h3>Perbaikan Smartphone</h3>
+                        <p>Perbaikan komprehensif berbagai jenis smartphone.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="see-more-container">
-                <a href="https://shopee.co.id/ogsuperofficial#product_list" target="_blank" class="see-more-btn">Lihat Selengkapnya di Shopee</a>
-        </section>
+        </div>
+    </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
@@ -2234,7 +3010,7 @@
         <div class="section-title fade-in">
           <h2>Tentang LCD OG Super</h2>
           <p>
-            Original Quality - Komitmen kami terhadap kualitas и kepuasan
+            Original Quality - Komitmen kami terhadap kualitas dan kepuasan
             pelanggan
           </p>
         </div>
@@ -2246,9 +3022,7 @@
           <div class="about-text fade-in">
             <h2>Mengapa Memilih Produk Kami?</h2>
             <p>
-              LCD OG Super telah menjadi pemimpin dalam penyediaan LCD dan layar
-              pengganti berkualitas tinggi. Setiap produk kami melalui proses
-              quality control yang ketat untuk memastikan kepuasan pelanggan.
+              OG Super ShineStar adalah destinasi utama untuk LCD smartphone berkualitas tinggi dengan berbagai merek terbaik. Kami telah dipercaya oleh teknisi di seluruh Indonesia untuk menyediakan produk-produk terbaik dengan kualitas juara.
             </p>
             <p>
               Kami hanya menggunakan material terbaik dan teknologi mutakhir
@@ -2263,10 +3037,7 @@
                   <i class="fas fa-award"></i>
                 </div>
                 <div class="feature-text">
-                  <h4>Kualitas Terjamin</h4>
-                  <p>
-                    Semua produk kami bergaransi resmi dengan jaminan kualitas
-                    terbaik.
+                  <h4>Memiliki Tipe Yang Lengkap</h4>
                   </p>
                 </div>
               </div>
@@ -2276,24 +3047,25 @@
                   <i class="fas fa-tools"></i>
                 </div>
                 <div class="feature-text">
-                  <h4>Presisi Tinggi</h4>
-                  <p>
-                    Setiap LCD diproduksi dengan presisi tinggi untuk
-                    kompatibilitas sempurna.
-                  </p>
+                  <h4>Original Seperti Bawaan Asli & Presisi Tinggi</h4>
                 </div>
               </div>
 
               <div class="feature">
                 <div class="feature-icon">
-                  <i class="fas fa-shipping-fast"></i>
+                  <i class="fas fa-play"></i>
                 </div>
                 <div class="feature-text">
-                  <h4>Pengiriman Cepat</h4>
-                  <p>
-                    Melayani pengiriman ke seluruh Indonesia dengan packaging
-                    aman.
-                  </p>
+                  <h4>Tidak Kebiruan</h4>
+                </div>
+              </div>
+
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Sentuhan Responsif</h4>
                 </div>
               </div>
             </div>
@@ -2704,6 +3476,130 @@ muteBtn.addEventListener('click', function() {
   }
 });
 
+   document.addEventListener("DOMContentLoaded", function () {
+        const batteryCarousel = document.querySelector(".battery-carousel");
+        const batterySlides = document.querySelectorAll(".battery-slide");
+        const batteryDots = document.querySelectorAll(".battery-dot");
+        const batteryPrevBtn = document.querySelector("#battery .prev-btn");
+        const batteryNextBtn = document.querySelector("#battery .next-btn");
+
+        let batteryCurrentIndex = 0;
+        const batterySlideCount = batterySlides.length;
+
+        // Function to update battery carousel position
+        function updateBatteryCarousel() {
+          batteryCarousel.style.transform = `translateX(-${batteryCurrentIndex * 100}%)`;
+
+          // Update active dot
+          batteryDots.forEach((dot, index) => {
+            if (index === batteryCurrentIndex) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
+          });
+        }
+
+        // Next slide function
+        function batteryNextSlide() {
+          batteryCurrentIndex = (batteryCurrentIndex + 1) % batterySlideCount;
+          updateBatteryCarousel();
+        }
+
+        // Previous slide function
+        function batteryPrevSlide() {
+          batteryCurrentIndex = (batteryCurrentIndex - 1 + batterySlideCount) % batterySlideCount;
+          updateBatteryCarousel();
+        }
+
+        // Go to specific slide
+        function batteryGoToSlide(index) {
+          batteryCurrentIndex = index;
+          updateBatteryCarousel();
+        }
+
+        // Event listeners for buttons
+        batteryNextBtn.addEventListener("click", batteryNextSlide);
+        batteryPrevBtn.addEventListener("click", batteryPrevSlide);
+
+        // Event listeners for dots
+        batteryDots.forEach((dot) => {
+          dot.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            batteryGoToSlide(index);
+          });
+        });
+
+        // Auto slide
+        let batteryAutoSlideInterval = setInterval(batteryNextSlide, 5000);
+
+        // Pause auto slide on hover
+        const batteryCarouselContainer = document.querySelector(".battery-carousel-container");
+        batteryCarouselContainer.addEventListener("mouseenter", () => {
+          clearInterval(batteryAutoSlideInterval);
+        });
+
+        batteryCarouselContainer.addEventListener("mouseleave", () => {
+          batteryAutoSlideInterval = setInterval(batteryNextSlide, 5000);
+        });
+
+        // Touch events for mobile
+        let batteryStartX = 0;
+        let batteryEndX = 0;
+
+        batteryCarouselContainer.addEventListener(
+          "touchstart",
+          (e) => {
+            batteryStartX = e.touches[0].clientX;
+            clearInterval(batteryAutoSlideInterval);
+          },
+          { passive: true }
+        );
+
+        batteryCarouselContainer.addEventListener(
+          "touchend",
+          (e) => {
+            batteryEndX = e.changedTouches[0].clientX;
+            handleBatterySwipe();
+            batteryAutoSlideInterval = setInterval(batteryNextSlide, 5000);
+          },
+          { passive: true }
+        );
+
+        function handleBatterySwipe() {
+          const threshold = 50; // Minimum swipe distance
+
+          if (batteryStartX - batteryEndX > threshold) {
+            // Swipe left - next slide
+            batteryNextSlide();
+          } else if (batteryEndX - batteryStartX > threshold) {
+            // Swipe right - previous slide
+            batteryPrevSlide();
+          }
+        }
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          // Only navigate if the battery section is in view
+          const batterySection = document.getElementById("battery");
+          const rect = batterySection.getBoundingClientRect();
+          const isInView = (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+          
+          if (isInView) {
+            if (e.key === "ArrowLeft") {
+              batteryPrevSlide();
+            } else if (e.key === "ArrowRight") {
+              batteryNextSlide();
+            }
+          }
+        });
+      });
+
 // Reset icon when audio ends
 marsAudio.addEventListener('ended', function() {
   playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
@@ -2805,6 +3701,7 @@ marsAudio.addEventListener('ended', function() {
             updateActiveState();
           }
         });
+        
 
         // Responsive adjustments on window resize
         window.addEventListener("resize", function () {
