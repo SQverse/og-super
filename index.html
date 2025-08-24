@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="assets/logo-ogsuper.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/logo-ogsuper1.png" type="image/x-icon" />
     <title>LCD OG Super - Original Quality Smartphone</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -95,52 +95,155 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 20px; /* Memberikan jarak antar elemen header */
       }
 
-      .logo {
+      .logo-and-brands {
         display: flex;
         align-items: center;
-        position: relative;
-        overflow: hidden;
+        gap: 15px; /* Jarak antara logo teks dan brand logos */
+        flex-shrink: 0;
       }
 
-      .logo::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--color-gold);
-        transition: width 0.5s ease;
-      }
-
-      .logo:hover::after {
-        width: 100%;
-      }
-
-      .logo-text {
+      .brand-logos {
         display: flex;
-        flex-direction: column;
-        margin-left: 10px;
+        align-items: center;
+        gap: 12px; /* Jarak antara dua logo */
+        padding-left: 15px;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        height: 40px; /* Tinggi default */
+      }
+
+      .brand-logo {
+        height: 100%;
+        max-height: 40px; /* Batas maksimal tinggi */
+        width: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .brand-logo:hover {
+        transform: scale(1.05);
       }
 
       .logo-main {
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--color-gold);
-        line-height: 1;
-        font-family: "Inter", sans-serif;
-        position: relative;
+  font-family: 'Inter', sans-serif; /* atau Nunito sesuai mau */
+  font-size: 20px; /* atur sesuai selera */
+  font-weight: 800; /* biar tebal */
+  color: var(--color-gold); /* misal biar selaras sama tema */
+  letter-spacing: 1px;
+}
+
+.logo-tagline {
+  font-family: 'Nunito', sans-serif; 
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-light-gray);
+}
+
+
+      /* Adjust navigation spacing */
+      nav ul {
+        gap: 15px; /* Memberikan jarak antar menu navigasi */
       }
 
-      .logo-tagline {
-        font-size: 10px;
-        color: var(--color-white);
-        letter-spacing: 1.5px;
-        font-weight: 500;
+      /* Section spacing adjustments */
+      .section {
+        padding: 100px 0;
       }
 
+      /* Untuk memberikan jarak lebih pada elemen tertentu */
+      .spacing-adjust {
+        margin-bottom: 30px;
+      }
+
+      /* Responsive adjustments for header */
+      @media (max-width: 992px) {
+        .brand-logos {
+          height: 35px;
+          max-height: 35px;
+          gap: 10px;
+          padding-left: 12px;
+        }
+        
+        .header-container {
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .brand-logos {
+          height: 30px;
+          max-height: 30px;
+          gap: 8px;
+          padding-left: 10px;
+        }
+        
+        .logo-and-brands {
+          gap: 10px;
+        }
+        
+        /* Adjust header padding for mobile */
+        header {
+          padding: 12px 0;
+        }
+        
+        header.scrolled {
+          padding: 8px 0;
+        }
+      }
+
+   /* Logo tetap tampil + lebih besar di layar kecil */
+@media (max-width: 576px) {
+  .brand-logos {
+    display: flex !important;   /* pastikan tetap muncul */
+    height: 40px;               /* lebih tinggi dari default mobile */
+    max-height: 40px;
+    gap: 8px;                   /* jarak antar logo */
+    padding-left: 8px;
+  }
+
+  .brand-logo {
+    max-height: 40px;           /* perbesar logonya */
+    width: auto;
+  }
+}
+
+
+
+
+      /* Additional spacing for sections */
+      #products-lcd {
+        padding: 100px 0 80px;
+      }
+      
+      #battery {
+        padding: 80px 0;
+      }
+      
+      #portfolio {
+        padding: 80px 0 100px;
+      }
+      
+      /* Untuk tampilan mobile, atur ulang spacing */
+      @media (max-width: 768px) {
+        #products-lcd {
+            padding: 70px 0 50px;
+        }
+        
+        #battery {
+            padding: 50px 0;
+        }
+        
+        #portfolio {
+            padding: 50px 0 70px;
+        }
+        
+        /* Responsive adjustment for mobile */
+        .top-banner {
+          height: 70vh;
+        }
+      }
       nav ul {
         display: flex;
         list-style: none;
@@ -342,163 +445,6 @@
         margin-left: auto;
         margin-right: auto;
       }
-
-      /* Mars Audio Player Styles */
-.mars-audio-player {
-  margin-top: 40px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--color-gold);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.audio-label {
-  color: var(--color-light-gold);
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.audio-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.audio-control-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: var(--color-gold);
-  color: var(--color-black);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.audio-control-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-}
-
-.progress-container {
-  flex-grow: 1;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-  cursor: pointer;
-  position: relative;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: var(--color-gold);
-  border-radius: 3px;
-  transition: width 0.1s ease;
-}
-
-.volume-control {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.volume-btn {
-  background: transparent;
-  border: none;
-  color: var(--color-gold);
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 5px;
-}
-
-.volume-btn:hover {
-  color: var(--color-light-gold);
-}
-
-.volume-slider {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 80px;
-  height: 5px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.2);
-  outline: none;
-}
-
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: var(--color-gold);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.volume-slider::-webkit-slider-thumb:hover {
-  background: var(--color-light-gold);
-  transform: scale(1.2);
-}
-
-.volume-slider::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: var(--color-gold);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-}
-
-.volume-slider::-moz-range-thumb:hover {
-  background: var(--color-light-gold);
-  transform: scale(1.2);
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .mars-audio-player {
-    margin-top: 30px;
-    padding: 15px;
-  }
-  
-  .audio-container {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .progress-container {
-    width: 100%;
-  }
-  
-  .volume-control {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .volume-slider {
-    width: 120px;
-  }
-}
 
       /* Hero Section - Improved with layered animation */
 .hero {
@@ -2622,10 +2568,17 @@
     <!-- Header & Navigation -->
     <header id="header">
       <div class="container header-container">
-        <div class="logo">
-          <div class="logo-text">
-            <div class="logo-main">OG SUPER SHINESTAR</div>
-            <div class="logo-tagline">Original Quality</div>
+        <div class="logo-and-brands">
+          <div class="logo">
+            <div class="logo-text">
+              <div class="logo-main">OG SUPER SHINESTAR</div>
+              <div class="logo-tagline">Original Quality</div>
+            </div>
+          </div>
+          
+          <div class="brand-logos">
+            <img src="assets/logo-ogsuper.ico" alt="Brand Logo 1" class="brand-logo">
+            <img src="assets/logo-shinestar.png" alt="Brand Logo 2" class="brand-logo">
           </div>
         </div>
 
@@ -2635,18 +2588,18 @@
           </button>
 
           <ul id="navMenu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Produk</a></li>
-            <li><a href="#features">Fitur</a></li>
+            <li><a href="#top-banner">Home</a></li>
+            <li><a href="#products-lcd">Produk</a></li>
+            <li><a href="#features-carousel">Fitur</a></li>
             <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#portfolio">Portofolio</li>
             <li><a href="#contact" class="nav-cta">Kontak</a></li>
           </ul>
         </nav>
       </div>
     </header>
-
     <!-- Top Banner Section -->
-    <section class="top-banner"></section>
+    <section class="top-banner" id="top-banner"></section>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -2700,31 +2653,7 @@
       </div>
     </section>
 
-    <!-- Audio Player Section -->
-    <div class="mars-audio-player fade-in">
-      <p class="audio-label">Dengarkan Mars OG Super</p>
-      <div class="audio-container">
-        <button id="playPauseBtn" class="audio-control-btn">
-          <i class="fas fa-play"></i>
-        </button>
-        <div class="progress-container">
-          <div class="progress-bar" id="progressBar"></div>
-        </div>
-        <div class="volume-control">
-          <button id="muteBtn" class="volume-btn">
-            <i class="fas fa-volume-up"></i>
-          </button>
-          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
-        </div>
-        <audio id="marsAudio">
-          <source src="assets/LCD OG Super Shine Star Ver 1 (1).mp3" type="audio/mpeg">
-          Browser Anda tidak mendukung elemen audio.
-        </audio>
-      </div>
-    </div>
-
-
-    <!-- Features Section -->
+        <!-- Features Section -->
     <section class="section" id="features-carousel">
       <div class="container">
         <div class="section-title">
@@ -2996,32 +2925,70 @@
                 <h2>Portofolio Kami</h2>
             </div>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item stagger-item">
-                    <iframe src="https://www.instagram.com/p/DLtcsVER7Wb/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-                    <div class="portfolio-overlay">
-                        <h3>Instalasi LCD OG Super</h3>
-                        <p>Proses instalasi LCD OG Super pada smartphone Samsung.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item stagger-item">
-                    <iframe src="https://www.instagram.com/p/DLuD7uORssM/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-                    <div class="portfolio-overlay">
-                        <h3>Penggantian Baterai</h3>
-                        <p>Penggantian baterai smartphone iPhone dengan produk Agwin.</p>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item stagger-item">
-                    <iframe src="https://www.instagram.com/p/DMPDNHZRERn/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-                    <div class="portfolio-overlay">
-                        <h3>Perbaikan Smartphone</h3>
-                        <p>Perbaikan komprehensif berbagai jenis smartphone.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+              <div class="portfolio-grid">
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DLuD7uORssM/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>LCD OG Super</h3>
+                          <p>Jernih, responsif, hemat budget!</p>
+                      </div>
+                  </div>  
+                  
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DKREcsTx0uP/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>LCD Agwin</h3>
+                          <p>Layar gaming super responsif!</p>
+                      </div>
+                  </div>
+
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DKJ3iryR3KR/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>OG Fullset with Frame </h3>
+                          <p>Praktis, presisi, tinggal pasang!</p>
+                      </div>
+                  </div>
+
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DJ_IgG9ReBC/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>LCD ShineStar Fullset</h3>
+                          <p>Fullset, pasang tanpa ribet!</p>
+                      </div>
+                  </div>
+
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DIu2s3ZTqtZ/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>LCD ShineStar Full HD</h3>
+                          <p>Tampilan jernih, sentuhan responsif!</p>
+                      </div>
+                  </div>
+
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DI-pPWrRGPZ/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>OG Super Battery</h3>
+                          <p>Tenaga besar, awet seharian penuh!</p>
+                      </div>
+                  </div>
+
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DKbRZZmRBIX/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>Baterai MacPlus</h3>
+                          <p>Awet, aman, tahan seharian!</p>
+                      </div>
+                  </div>
+
+                  <div class="portfolio-item stagger-item">
+                      <iframe src="https://www.instagram.com/p/DKHI9goxE3B/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                      <div class="portfolio-overlay">
+                          <h3>Lem OG Super</h3>
+                          <p>Rekat kuat, cepat kering, tahan lama!</p>
+                      </div>
+                  </div>
     </section>
 
     <!-- About Section -->
@@ -3432,67 +3399,6 @@
         });
       }
 
-       // Audio Player Functionality
-        // Audio Player Functionality
-const marsAudio = document.getElementById('marsAudio');
-const playPauseBtn = document.getElementById('playPauseBtn');
-const progressBar = document.getElementById('progressBar');
-const muteBtn = document.getElementById('muteBtn');
-const volumeSlider = document.getElementById('volumeSlider');
-
-// Play/Pause functionality
-playPauseBtn.addEventListener('click', function() {
-  if (marsAudio.paused) {
-    marsAudio.play();
-    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-  } else {
-    marsAudio.pause();
-    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-  }
-});
-
-// Update progress bar
-marsAudio.addEventListener('timeupdate', function() {
-  const progress = (marsAudio.currentTime / marsAudio.duration) * 100;
-  progressBar.style.width = progress + '%';
-});
-
-// Click on progress bar to seek
-progressBar.parentElement.addEventListener('click', function(e) {
-  const progressWidth = this.clientWidth;
-  const clickX = e.offsetX;
-  const duration = marsAudio.duration;
-  marsAudio.currentTime = (clickX / progressWidth) * duration;
-});
-
-// Volume control
-volumeSlider.addEventListener('input', function() {
-  marsAudio.volume = volumeSlider.value;
-  
-  // Update mute button icon
-  if (marsAudio.volume == 0) {
-    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-  } else {
-    muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-  }
-});
-
-// Mute functionality
-muteBtn.addEventListener('click', function() {
-  if (marsAudio.volume > 0) {
-    // Store current volume before muting
-    volumeSlider.dataset.prevVolume = marsAudio.volume;
-    marsAudio.volume = 0;
-    volumeSlider.value = 0;
-    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-  } else {
-    // Restore to previous volume or default
-    marsAudio.volume = volumeSlider.dataset.prevVolume || 0.7;
-    volumeSlider.value = marsAudio.volume;
-    muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-  }
-});
-
    document.addEventListener("DOMContentLoaded", function () {
         const batteryCarousel = document.querySelector(".battery-carousel");
         const batterySlides = document.querySelectorAll(".battery-slide");
@@ -3616,11 +3522,6 @@ muteBtn.addEventListener('click', function() {
           }
         });
       });
-
-// Reset icon when audio ends
-marsAudio.addEventListener('ended', function() {
-  playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-});
 
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize carousel
