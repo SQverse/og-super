@@ -65,6 +65,15 @@
         padding: 0 20px;
       }
 
+      /* Top Banner Styles */
+      .top-banner {
+        height: 100vh;
+        background-image: url('assets/banner.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
       /* Header & Navigation - Improved with subtle animation */
       header {
         background-color: rgba(0, 0, 0, 0.9);
@@ -187,6 +196,7 @@
 
       .nav-cta:before {
         content: "";
+        position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
@@ -798,6 +808,7 @@
         color: var(--color-white);
         margin-bottom: 10px;
         font-weight: 700;
+        position: relative;
       }
 
       .product-info p {
@@ -923,6 +934,8 @@
         font-size: 1rem;
         margin-bottom: 15px;
         max-width: 600px;
+        position: relative;
+        z-index: 2;
       }
 
       .carousel-nav {
@@ -1000,6 +1013,11 @@
             
             #portfolio {
                 padding: 50px 0 70px;
+            }
+            
+            /* Responsive adjustment for mobile */
+            .top-banner {
+              height: 70vh;
             }
         }
 
@@ -1312,6 +1330,8 @@
 
       .quality-features {
         margin-top: 30px;
+        position: relative;
+        z-index: 2;
       }
 
       .feature {
@@ -1424,6 +1444,8 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
+        position: relative;
+        z-index: 1;
       }
 
       .product-card:hover .product-img img {
@@ -1432,6 +1454,8 @@
 
       .product-info {
         padding: 20px;
+        position: relative;
+        z-index: 2;
       }
 
       .product-info h3 {
@@ -1846,6 +1870,8 @@
         justify-content: center;
         margin-top: 20px;
         gap: 10px;
+        position: relative;
+        z-index: 2;
       }
 
       .battery-dot {
@@ -2189,6 +2215,7 @@
       .social-link i {
         position: relative;
         z-index: 1;
+        font-size: 18px;
       }
 
       .contact-form {
@@ -2352,6 +2379,7 @@
         height: 1px;
         background: var(--color-gold);
         transition: width 0.3s ease;
+        z-index: 1;
       }
 
       .footer-links a:hover::before {
@@ -2628,6 +2656,10 @@
         </nav>
       </div>
     </header>
+
+    <!-- Top Banner Section -->
+    <section class="top-banner"></section>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="floating-elements">
