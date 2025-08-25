@@ -25,17 +25,7 @@
         --color-light-gray: #f5f5f5;
         --color-mid-gray: #333333;
       }
-
-      .btn-primary, .nav-cta, .submit-btn, .product-cta {
-            background: var(--color-gold) !important;
-            color: var(--color-black) !important;
-        }
-
-        .btn-primary:hover, .nav-cta:hover, .submit-btn:hover, .product-cta:hover {
-            background: var(--color-light-gold) !important;
-            color: var(--color-black) !important;
-        }
-
+      
 
       * {
         margin: 0;
@@ -504,6 +494,22 @@
         display: inline-block;
       }
 
+      .hero h1 span::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--color-gold),
+          transparent
+        );
+        animation: underlinePulse 3s infinite;
+      }
+
       .hero p {
         font-size: 1.2rem;
         margin-bottom: 30px;
@@ -741,6 +747,28 @@
         color: var(--color-light-gray);
         margin-bottom: 15px;
         font-size: 0.95rem;
+        position: relative;
+      }
+
+      .product-features {
+        margin: 15px 0;
+      }
+
+      .product-feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .product-feature i {
+        color: var(--color-gold);
+        margin-right: 10px;
+        font-size: 14px;
+      }
+
+      .product-feature span {
+        font-size: 0.9rem;
+        color: var(--color-light-gray);
       }
 
       .product-price {
@@ -848,6 +876,7 @@
           rgba(0, 0, 0, 0.7)
         );
         padding-bottom: 50px;
+        transform: translateY(0);
       }
 
       .carousel-title {
@@ -900,6 +929,8 @@
         justify-content: center;
         margin-top: 20px;
         gap: 10px;
+        z-index: 10;
+        position: relative;
       }
 
       .dot {
@@ -1140,6 +1171,8 @@
         justify-content: center;
         margin-top: 20px;
         gap: 10px;
+        z-index: 10;
+        position: relative;
       }
 
       .battery-dot {
@@ -1345,6 +1378,7 @@
         z-index: 1;
         opacity: 0;
         transition: opacity 0.3s ease;
+        pointer-events: none;
       }
 
       .about-img:hover::before {
@@ -1450,7 +1484,208 @@
         margin-bottom: 0;
       }
 
+      /* Contact Section - Improved with better styling */
+      .contact {
+        background: linear-gradient(
+          to bottom,
+          var(--color-dark-gray),
+          var(--color-black)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(212, 175, 55, 0.1) 0%,
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      .contact-container {
+        display: flex;
+        gap: 50px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-info h2 {
+        color: var(--color-gold);
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .contact-info h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--color-gold);
+      }
+
+      .contact-info p {
+        color: var(--color-light-gray);
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-detail:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(212, 175, 55, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: var(--color-gold);
+        transition: all 0.3s ease;
+      }
+
+      .contact-detail:hover .contact-icon {
+        transform: scale(1.1);
+        background: rgba(212, 175, 55, 0.3);
+      }
+
+      .contact-text {
+        color: var(--color-light-gray);
+        font-size: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-white);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-gold);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+      }
+
+      .social-link:hover::before {
+        opacity: 1;
+      }
+
+      .social-link:hover {
+        transform: translateY(-3px) rotate(5deg);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .social-link i {
+        position: relative;
+        z-index: 1;
+        font-size: 18px;
+      }
+
+       .contact-container.centered {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
       
+      .contact-info.centered {
+        max-width: 600px;
+        width: 100%;
+      }
+      
+      .contact-info.centered .contact-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      
+      .contact-info.centered .contact-detail {
+        justify-content: center;
+        text-align: left;
+        max-width: 300px;
+        width: 100%;
+      }
+      
+      .contact-info.centered .social-links {
+        justify-content: center;
+      }
+
+      /* Contact links styling */
+      .contact-link {
+        color: var(--color-light-gray);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: inline-block;
+      }
+
+      .contact-link:hover {
+        color: var(--color-gold);
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .contact-info.centered .contact-detail {
+          max-width: 100%;
+        }
+      } 
+
       /* Footer - Improved with better styling */
       footer {
         background: linear-gradient(
@@ -1651,7 +1886,26 @@
         transform: translateY(0);
       }
 
-    
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-img,
+        .about-text {
+          flex: auto;
+          width: 100%;
+        }
+
+        .contact-container {
+          flex-direction: column;
+        }
+      }
 
       @media (max-width: 768px) {
         .header-container {
@@ -1722,24 +1976,6 @@
         }
       }
 
-      @media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .about-img,
-  .about-text {
-    width: 100%;
-  }
-
-  .about-text h2 {
-    font-size: 1.8rem;
-  }
-}
-
-
       @media (max-width: 576px) {
         .products-grid,
         .portfolio-grid {
@@ -1800,7 +2036,8 @@
             <li><a href="#products-lcd">Produk</a></li>
             <li><a href="#features-carousel">Fitur</a></li>
             <li><a href="#about">Tentang Kami</a></li>
-            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#portfolio">Portofolio</li>
+            <li><a href="#contact" class="nav-cta">Kontak</a></li>
           </ul>
         </nav>
       </div>
@@ -1930,7 +2167,7 @@
               />
               <div class="carousel-overlay">
                 <h3 class="carousel-title">KUALITAS TINGGI</h3>
-                <p class="carousel-description">Material premium untuk ketahanan dan kejernihan</p>
+                <p class="carousel-description">Material premium untuk ketahanan và kejernihan</p>
               </div>
             </div>
 
@@ -2021,7 +2258,7 @@
               />
               <div class="carousel-overlay">
                 <h3 class="carousel-title">KUALITAS GAMBAR</h3>
-                <p class="carousel-description">Resolusi tinggi untuk tampilan yang jernih dan detail</p>
+                <p class="carousel-description">Resolusi tinggi untuk tampilan yang jernih và detail</p>
               </div>
             </div>
 
@@ -2147,7 +2384,7 @@
             </div>
             <div class="product-info">
               <h3>Shinestar LCD</h3>
-              <p>LCD dengan teknologi terkini, menawarkan warna yang jernih dan responsifitas tinggi.</p>
+              <p>LCD dengan teknologi terkini, menawarkan warna yang jernih và responsifitas tinggi.</p>
               <div class="product-features">
                 <div class="product-feature">
                   <i class="fas fa-check"></i>
@@ -2195,7 +2432,7 @@
             </div>
             <div class="product-info">
               <h3>MacPlus LCD</h3>
-              <p>LCD premium dengan ketahanan tinggi dan reproduksi warna yang akurat.</p>
+              <p>LCD premium dengan ketahanan tinggi và reproduksi warna yang akurat.</p>
               <div class="product-features">
                 <div class="product-feature">
                   <i class="fas fa-check"></i>
@@ -2219,7 +2456,7 @@
             </div>
             <div class="product-info">
               <h3>Agwin LCD</h3>
-              <p>LCD dengan kualitas terbaik dan harga kompetitif, pilihan tepat untuk berbagai smartphone.</p>
+              <p>LCD dengan kualitas terbaik và harga kompetitif, pilihan tepat untuk berbagai smartphone.</p>
               <div class="product-features">
                 <div class="product-feature">
                   <i class="fas fa-check"></i>
@@ -2244,7 +2481,7 @@
     <section id="battery" class="section">
       <div class="container">
         <div class="section-title fade-in">
-          <h2>Baterai OG SUPER dan Baterai MacPlus</h2>
+          <h2>Baterai OG SUPER và Baterai MacPlus</h2>
         </div>
         
         <div class="battery-carousel-container">
@@ -2418,7 +2655,7 @@
         <div class="section-title fade-in">
           <h2>Tentang LCD OG Super</h2>
           <p>
-            Original Quality - Komitmen kami terhadap kualitas dan kepuasan
+            Original Quality - Komitmen kami terhadap kualitas và kepuasan
             pelanggan
           </p>
         </div>
@@ -2433,9 +2670,9 @@
               OG Super ShineStar adalah destinasi utama untuk LCD smartphone berkualitas tinggi dengan berbagai merek terbaik. Kami telah dipercaya oleh teknisi di seluruh Indonesia untuk menyediakan produk-produk terbaik dengan kualitas juara.
             </p>
             <p>
-              Kami hanya menggunakan material terbaik dan teknologi mutakhir
+              Kami hanya menggunakan material terbaik và teknologi mutakhir
               untuk memastikan layar pengganti kami tidak hanya berfungsi dengan
-              sempurna, tetapi juga tahan lama dan memberikan pengalaman visual
+              sempurna, tetapi juga tahan lama và memberikan pengalaman visual
               terbaik.
             </p>
 
@@ -2483,7 +2720,68 @@
     </section>
 
     <!-- Contact Section -->
-    
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-title fade-in">
+          <h2>Hubungi Kami</h2>
+          <p>
+            Hubungi kami untuk informasi lebih lanjut tentang produk LCD OG Super
+          </p>
+        </div>
+
+        <div class="contact-container centered">
+          <div class="contact-info centered fade-in">
+            <h2>Butuh Bantuan?</h2>
+            <p>
+              Tim customer service kami siap membantu Anda memilih produk yang
+              tepat và menjawab semua pertanyaan terkait LCD và layar
+              pengganti.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">Kota Jakarta Barat, Indonesia</div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <a href="tel:+6285184333580" class="contact-link">+62 851 8433 3580</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/p/OG-Super-100090022333414/"
+                class="social-link" target="_blank" rel="noopener noreferrer"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/lcdogsupershinestar.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                class="social-link" target="_blank" rel="noopener noreferrer"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@official_ogsuper"
+                class="social-link" target="_blank" rel="noopener noreferrer"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=6285184333580&text&type=phone_number&app_absent=0"
+                class="social-link" target="_blank" rel="noopener noreferrer"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -2501,21 +2799,21 @@
             <h3>Produk Kami</h3>
             <ul class="footer-links">
               <li>
-                <a href="#"><i class="fas fa-chevron-right"></i> LCD Agwin</a>
+                <a href="#products-lcd"><i class="fas fa-chevron-right"></i> LCD Agwin</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-chevron-right"></i> LCD OG SUPER</a>
+                <a href="#products-lcd"><i class="fas fa-chevron-right"></i> LCD OG SUPER</a>
               </li>
               <li>
-                <a href="#"><i class="fas fa-chevron-right"></i> LCD MacPlus</a>
+                <a href="#products-lcd"><i class="fas fa-chevron-right"></i> LCD MacPlus</a>
               </li>
               <li>
-                <a href="#"
+                <a href="#products-lcd"
                   ><i class="fas fa-chevron-right"></i> LCD TicToc</a
                 >
               </li>
               <li>
-                <a href="#"
+                <a href="#products-lcd"
                   ><i class="fas fa-chevron-right"></i> LCD Shinestar</a
                 >
               </li>
@@ -2539,7 +2837,7 @@
                 >
               </li>
               <li>
-                <a href="#"
+                <a href="#contact"
                   ><i class="fas fa-chevron-right"></i> Kontak</a
                 >
               </li>
@@ -2872,8 +3170,6 @@
         });
       });
 
-      
-
       // Fade-in Animation on Scroll
       const fadeElements = document.querySelectorAll(".fade-in");
 
@@ -2924,6 +3220,17 @@
         window.scrollTo({
           top: 0,
           behavior: "smooth",
+        });
+      });
+
+      // Add clickable functionality to contact details
+      document.querySelectorAll('.contact-detail').forEach(detail => {
+        detail.style.cursor = 'pointer';
+        detail.addEventListener('click', function() {
+          const link = this.querySelector('a');
+          if (link) {
+            window.open(link.href, '_blank');
+          }
         });
       });
     </script>
