@@ -36,69 +36,6 @@
             color: var(--color-black) !important;
         }
 
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80")
-                    no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 650px;
-            padding: 0 20px;
-            animation: fadeIn 1.5s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--color-white);
-            line-height: 1.2;
-            font-weight: 800;
-        }
-
-        .hero h1 span {
-            color: var(--color-gold);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--color-light-gray);
-            font-weight: 500;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-family: "Inter", sans-serif;
-        }
-
-        .btn-primary {
-            /* Warna sudah ditentukan di atas dengan !important */
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
-
 
       * {
         margin: 0;
@@ -565,22 +502,6 @@
         color: var(--color-gold);
         position: relative;
         display: inline-block;
-      }
-
-      .hero h1 span::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--color-gold),
-          transparent
-        );
-        animation: underlinePulse 3s infinite;
       }
 
       .hero p {
@@ -1529,250 +1450,7 @@
         margin-bottom: 0;
       }
 
-      /* Contact Section - Improved with better form styling */
-      .contact {
-        background: linear-gradient(
-          to bottom,
-          var(--color-dark-gray),
-          var(--color-black)
-        );
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact::before {
-        content: "";
-        position: absolute;
-        bottom: -100px;
-        left: -100px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(212, 175, 55, 0.1) 0%,
-          transparent 70%
-        );
-        z-index: 0;
-      }
-
-      .contact-container {
-        display: flex;
-        gap: 50px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .contact-info {
-        flex: 1;
-      }
-
-      .contact-info h2 {
-        color: var(--color-gold);
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-        font-weight: 800;
-        position: relative;
-        display: inline-block;
-        padding-bottom: 10px;
-      }
-
-      .contact-info h2::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 50px;
-        height: 3px;
-        background: var(--color-gold);
-      }
-
-      .contact-info p {
-        color: var(--color-light-gray);
-        margin-bottom: 30px;
-        font-size: 1.05rem;
-      }
-
-      .contact-details {
-        margin-bottom: 30px;
-      }
-
-      .contact-detail {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-        padding: 10px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-      }
-
-      .contact-detail:hover {
-        background: rgba(255, 255, 255, 0.05);
-        transform: translateX(5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .contact-icon {
-        width: 40px;
-        height: 40px;
-        background: rgba(212, 175, 55, 0.2);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 15px;
-        color: var(--color-gold);
-        transition: all 0.3s ease;
-      }
-
-      .contact-detail:hover .contact-icon {
-        transform: scale(1.1);
-        background: rgba(212, 175, 55, 0.3);
-      }
-
-      .contact-text {
-        color: var(--color-light-gray);
-        font-size: 1rem;
-      }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-      }
-
-      .social-link {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-white);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .social-link::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--color-gold);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 0;
-      }
-
-      .social-link:hover::before {
-        opacity: 1;
-      }
-
-      .social-link:hover {
-        transform: translateY(-3px) rotate(5deg);
-        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-      }
-
-      .social-link i {
-        position: relative;
-        z-index: 1;
-        font-size: 18px;
-      }
-
-      .contact-form {
-        flex: 1;
-        background: linear-gradient(
-          145deg,
-          rgba(26, 26, 26, 0.8),
-          rgba(51, 51, 51, 0.6)
-        );
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(212, 175, 55, 0.1);
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-        position: relative;
-      }
-
-      .form-group label {
-        display: block;
-        color: var(--color-light-gray);
-        margin-bottom: 8px;
-        font-weight: 600;
-        font-family: "Inter", sans-serif;
-      }
-
-      .form-control {
-        width: 100%;
-        padding: 14px 16px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        color: var(--color-white);
-        font-family: "Nunito", sans-serif;
-        transition: all 0.3s ease;
-        font-size: 1rem;
-      }
-
-      .form-control:focus {
-        outline: none;
-        border-color: var(--color-gold);
-        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-        background: rgba(255, 255, 255, 0.08);
-        transform: translateY(-2px);
-      }
-
-      textarea.form-control {
-        min-height: 120px;
-        resize: vertical;
-      }
-
-      .submit-btn {
-        background: var(--color-gold);
-        color: var(--color-black);
-        border: none;
-        padding: 14px 32px;
-        border-radius: 30px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-family: "Inter", sans-serif;
-        font-size: 1rem;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .submit-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: var(--color-light-gold);
-        transition: all 0.4s ease;
-        z-index: -1;
-      }
-
-      .submit-btn:hover::before {
-        left: 0;
-      }
-
-      .submit-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-      }
-
+      
       /* Footer - Improved with better styling */
       footer {
         background: linear-gradient(
@@ -1973,26 +1651,7 @@
         transform: translateY(0);
       }
 
-      /* Responsive Styles */
-      @media (max-width: 992px) {
-        .hero h1 {
-          font-size: 2.8rem;
-        }
-
-        .about-content {
-          flex-direction: column;
-        }
-
-        .about-img,
-        .about-text {
-          flex: auto;
-          width: 100%;
-        }
-
-        .contact-container {
-          flex-direction: column;
-        }
-      }
+    
 
       @media (max-width: 768px) {
         .header-container {
@@ -2063,6 +1722,24 @@
         }
       }
 
+      @media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .about-img,
+  .about-text {
+    width: 100%;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
       @media (max-width: 576px) {
         .products-grid,
         .portfolio-grid {
@@ -2123,8 +1800,7 @@
             <li><a href="#products-lcd">Produk</a></li>
             <li><a href="#features-carousel">Fitur</a></li>
             <li><a href="#about">Tentang Kami</a></li>
-            <li><a href="#portfolio">Portofolio</li>
-            <li><a href="#contact" class="nav-cta">Kontak</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
           </ul>
         </nav>
       </div>
@@ -2807,95 +2483,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section contact" id="contact">
-      <div class="container">
-        <div class="section-title fade-in">
-          <h2>Hubungi Kami</h2>
-          <p>
-            Konsultasikan kebutuhan LCD dan layar smartphone Anda dengan tim
-            ahli kami
-          </p>
-        </div>
-
-        <div class="contact-container">
-          <div class="contact-info fade-in">
-            <h2>Butuh Bantuan?</h2>
-            <p>
-              Tim customer service kami siap membantu Anda memilih produk yang
-              tepat и menjawab semua pertanyaan terkait LCD dan layar
-              pengganti.
-            </p>
-
-            <div class="contact-details">
-              <div class="contact-detail">
-                <div class="contact-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-text">Kota Jakarta Barat, Indonesia</div>
-              </div>
-
-              <div class="contact-detail">
-                <div class="contact-icon">
-                  <i class="fas fa-phone-alt"></i>
-                </div>
-                <div class="contact-text">+62 851 8433 3580</div>
-              </div>
-            </div>
-
-            <div class="social-links">
-              <a
-                href="https://www.facebook.com/p/OG-Super-100090022333414/"
-                class="social-link" target="_blank"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/lcdogsupershinestar.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                class="social-link" target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@official_ogsuper"
-                class="social-link" target="_blank"
-                ><i class="fab fa-tiktok"></i
-              ></a>
-              <a
-                href="https://api.whatsapp.com/send/?phone=6285184333580&text&type=phone_number&app_absent=0"
-                class="social-link" target="_blank"
-                ><i class="fab fa-whatsapp"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="contact-form fade-in">
-            <form id="contactForm">
-              <div class="form-group">
-                <label for="name">Nama Lengkap</label>
-                <input type="text" id="name" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Nomor Telepon</label>
-                <input type="tel" id="phone" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Pesan</label>
-                <textarea id="message" class="form-control" required></textarea>
-              </div>
-
-              <a href="https://api.whatsapp.com/send/?phone=6285184333580&text&type=phone_number&app_absent=0" target="_blank">
-              <button type="submit" class="submit-btn">Kirim Pesan</button>
-              </a>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- Footer -->
     <footer>
@@ -2951,7 +2539,7 @@
                 >
               </li>
               <li>
-                <a href="#contact"
+                <a href="#"
                   ><i class="fas fa-chevron-right"></i> Kontak</a
                 >
               </li>
@@ -3284,23 +2872,7 @@
         });
       });
 
-      // Form Submission
-      const contactForm = document.getElementById("contactForm");
-
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const message = document.getElementById("message").value;
-        const adminNumber = 6285184333580;
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${adminNumber}&text=Halo%20OG%20Super,%0A%0ASaya%20ingin%20info%20lebih%20lanjut%20:%0A%0ANama:%20${encodeURIComponent(name)}%0APesan:%20${encodeURIComponent(message)}`;
-
-        window.open(whatsappUrl, "_blank");
-
-        contactForm.reset();
-      });
+      
 
       // Fade-in Animation on Scroll
       const fadeElements = document.querySelectorAll(".fade-in");
